@@ -1,0 +1,36 @@
+@import "const";
+@import "functions";
+
+html, body {height: 100%;}
+
+#wrapper {
+	min-height: 100%;	
+}
+
+#main {
+	overflow:auto;
+	padding-bottom: @FOOTER_HEIGHT;
+	.centeredBlock(@LAYOUT_WIDTH);
+}
+
+#page {
+	.centeredBlock(@PAGE_WIDTH);
+	
+	#content {
+		width: @CONTENT_WIDTH;
+		float: left;
+	}
+	
+	#sidebar {
+		width: @SIDEBAR_WIDTH;
+		float: right;
+	}
+}
+
+footer.main {
+	position: relative;
+	margin-top: -@FOOTER_HEIGHT;
+	height: @FOOTER_HEIGHT;
+	clear: both;
+	.centeredBlock(@LAYOUT_WIDTH);
+} 
