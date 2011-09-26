@@ -2,3 +2,26 @@
 	margin: 0 auto;
 	width: @width;
 }
+
+.vLinearGradient(@point, @colorFrom, @colorTo) {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@colorFrom), to(@colorTo));
+	background-image: -webkit-linear-gradient(@point, @colorFrom, @colorTo);
+	background-image: -moz-linear-gradient(@point, @colorFrom, @colorTo);
+	background-image: -o-linear-gradient(@point, @colorFrom, @colorTo);
+	background-image: -ms-linear-gradient(@point, @colorFrom, @colorTo);
+	background-image: linear-gradient(@point, @colorFrom, @colorTo);
+	background-color: @colorTo;
+}
+
+.borderRadius(@topLeft: 0, @topRight: 0, @bottomRight: 0, @bottomLeft: 0) {
+	-webkit-border-radius: @topLeft @topRight @bottomRight @bottomLeft;
+	-khtml-border-radius: @topLeft @topRight @bottomRight @bottomLeft;
+	-moz-border-radius: @topLeft @topRight @bottomRight @bottomLeft;
+	border-radius: @topLeft @topRight @bottomRight @bottomLeft;
+}
+
+.insetBoxShadow(@offsetX, @offsetY, @color: #000, @blur: 0, @size: 1px) {
+	-webkit-box-shadow: inset @offsetX @offsetY @blur @size @color;
+	-moz-box-shadow: inset @offsetX @offsetY @blur @size @color;
+	box-shadow: inset @offsetX @offsetY @blur @size @color;
+}
