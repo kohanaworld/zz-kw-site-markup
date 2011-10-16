@@ -271,7 +271,8 @@ header.main {
 }
 
 #page {
-	.centeredBlock(@PAGE_WIDTH);
+	padding-bottom: 30px;
+	.centeredBlock(@PAGE_WIDTH);	
 	
 	#titlebar {
 		border-bottom: 1px solid @COLOR_BOX_BORDER;
@@ -322,7 +323,7 @@ header.main {
 			}
 
 			.listview {
-				list-style: none;
+				list-style: none;				
 				
 				li {
 					padding: 7px 5px;
@@ -332,13 +333,63 @@ header.main {
 				li:nth-child(even) {
 					background: @COLOR_BOX_BACKGROUND;
 				}
+				
+				&.key-value {
+					li {
+						padding-left: 20px;
+					
+						.key, .value {
+							display: inline-block;
+							vertical-align: middle;
+						}
+						
+						.key {
+							padding-right: 5px;
+							width: @SIDEBAR_WIDTH - 105;		
+							
+							.name, .name a, a {
+								display: inline-block;
+								vertical-align: middle;
+								text-decoration: none;
+								color: @COLOR_HEADER;
+								text-transform: uppercase;
+								font-weight: bold;
+								
+								&:hover {
+									color: @COLOR_MENU_HOVER;
+								}
+							}
+							
+							.ico.left {
+								margin-right: 10px;
+							}
+						}
+						
+						.value {
+							text-align: right;
+							width: @SIDEBAR_WIDTH - 230;
+							font-family: @NOTES_FONT_NAME;
+							font-style: italic;
+							font-weight: bold;
+						}
+					}
+				}
 			}
 		}
 		
 		#coders-widget {
 			.listview {
 				figure {
-					width: @SIDEBAR_WIDTH - 40;
+					padding-right: 5px;
+					width: @SIDEBAR_WIDTH - 45;
+				}
+			}
+		}
+		
+		#tags-widget {
+			.listview {
+				.value {
+					color: #cba038;
 				}
 			}
 		}
