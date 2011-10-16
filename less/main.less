@@ -13,6 +13,60 @@ body {
 	color: @COLOR_CONTENT;
 }
 
+a {
+	color: @COLOR_LINK;
+}
+
+a img {
+	border: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: @HEADER_FONT_NAME;
+	color: @COLOR_HEADER;
+	font-weight: bold;
+}
+
+h1, h2, h3{
+	text-transform: uppercase;
+}
+
+h1 {
+	font-size: @BASE_FONT_SIZE + 4;
+}
+
+h2 {
+	font-size: @BASE_FONT_SIZE + 2;
+}
+
+h3 {
+	font-size: @BASE_FONT_SIZE;
+}
+
+h4 {
+	font-size: @BASE_FONT_SIZE - 2;
+}
+
+h5 {
+	font-size: @BASE_FONT_SIZE - 3;
+}
+
+h6 {
+	font-size: @BASE_FONT_SIZE - 4;
+}
+
+img.ico {
+	vertical-align: middle;
+}
+
+img.ico.left{
+	margin-right: 5px;
+}
+
+img.ico.right{
+	margin-left: 5px;
+}
+
 #wrapper {
 	min-height: 100%;	
 }
@@ -25,6 +79,7 @@ body {
 
 header.main {
 	padding-top: 60px;
+	margin-bottom: 30px;
 	
 	nav.main {
 		@height: 55px;
@@ -83,16 +138,18 @@ header.main {
 	nav.sub {
 		padding: 10px 20px;
 		border: 1px solid @COLOR_BOX_BORDER;
-		border-top: none;
+		border-top: none;		
 		.topShadowedBackground(@COLOR_BOX_BACKGROUND, 5px, 20%);
 		.borderRadius(0, 0, @BOX_CORNERS_RADIUS, @BOX_CORNERS_RADIUS);
 		
 		ul.menu {
 			list-style: none;
+			float: left;
 			text-transform: uppercase;
-			font-size: @BASE_FONT_SIZE - 3;
+			font-size: @BASE_FONT_SIZE - 2;
 			font-weight: bold;
 			margin-top: 6px;
+			font-family: @HEADER_FONT_NAME;	
 			
 			li, a {
 				float: left;
@@ -103,7 +160,7 @@ header.main {
 				padding: 3px 20px;
 				
 				a {						
-					color: @COLOR_MENU;
+					color: @COLOR_HEADER;
 					text-decoration: none;
 				}
 				
@@ -141,6 +198,20 @@ header.main {
 
 #page {
 	.centeredBlock(@PAGE_WIDTH);
+	
+	#titlebar {
+		border-bottom: 1px solid @COLOR_BOX_BORDER;
+		padding-bottom: 10px;
+		
+		.filters {
+			float: right;
+			font-size: @BASE_FONT_SIZE - 2;
+		}
+		
+		.ico {
+			vertical-align: top;
+		}
+	}
 	
 	#content {
 		width: @CONTENT_WIDTH;
