@@ -67,6 +67,80 @@ img.ico.right{
 	margin-left: 5px;
 }
 
+figure.user {
+	display: inline-block;
+
+	img, figcaption {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	
+	img {
+		margin-right: 7px;
+	}
+	
+	figcaption {
+		.name, .description {
+			display: block;
+		}
+		
+		.name {
+			font-weight: bold;
+			margin-bottom: .25em;			
+		}
+		
+		.description {
+			font-style: italic;
+			font-size: .85em;
+			font-family: @NOTES_FONT_NAME;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+	}
+}
+
+figure.user.avatar.big {
+	img {
+		width: @AVATAR_BIG_SIZE;
+		height: @AVATAR_BIG_SIZE;
+		background: white;
+		padding: 3px;
+		border: 1px solid @COLOR_BOX_BORDER;
+		.boxShadow(@COLOR_BOX_BORDER);
+	}
+	
+	figcaption {
+		.name, .name a {
+			text-transform: uppercase;
+			color: @COLOR_HEADER;
+			
+			&:hover {
+				color: @COLOR_MENU_HOVER;
+			}
+		}
+	}
+}
+
+.more {
+	display: inline-block;
+	text-decoration: none;
+	color: @COLOR_CONTENT;
+	vertical-align: middle;
+	
+	&.small {
+		background: lighten(@COLOR_MORE_BUTTON, 5%) url(../i/design/bg/common/more/small/bg.png) no-repeat center;
+		border: 2px solid white;
+		.circle(10px, 2px);
+		.boxShadow(@COLOR_BOX_BORDER, 0, 0, 0, 1px);
+		
+		&:hover {
+			background-color: @COLOR_MORE_BUTTON;
+		}
+	}
+}
+
 #wrapper {
 	min-height: 100%;	
 }
@@ -225,6 +299,7 @@ header.main {
 		
 		.widget {
 			@paddings: 15px 20px 10px 30px;
+			margin-bottom: 30px;
 			
 			header {
 				padding: @paddings;	
@@ -235,18 +310,35 @@ header.main {
 				text-transform: uppercase;
 				background: white url(../i/design/bg/sidebar/widget/header/bg.png) repeat left top;
 				border-bottom: 1px solid @COLOR_BOX_BORDER;
+				
+				a {
+					color: @COLOR_HEADER;
+					text-decoration: none;
+				}
+				
+				a:hover {
+					color: @COLOR_MENU_HOVER;
+				}
 			}
 
 			.listview {
 				list-style: none;
 				
 				li {
-					padding: 5px;
+					padding: 7px 5px;
 					border-bottom: 1px solid @COLOR_BOX_BORDER;
 				}
 				
 				li:nth-child(even) {
 					background: @COLOR_BOX_BACKGROUND;
+				}
+			}
+		}
+		
+		#coders-widget {
+			.listview {
+				figure {
+					width: @SIDEBAR_WIDTH - 40;
 				}
 			}
 		}

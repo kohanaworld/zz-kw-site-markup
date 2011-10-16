@@ -15,7 +15,6 @@
 
 .borderRadius(@topLeft: 0, @topRight: 0, @bottomRight: 0, @bottomLeft: 0) {
 	-webkit-border-radius: @topLeft @topRight @bottomRight @bottomLeft;
-	-khtml-border-radius: @topLeft @topRight @bottomRight @bottomLeft;
 	-moz-border-radius: @topLeft @topRight @bottomRight @bottomLeft;
 	border-radius: @topLeft @topRight @bottomRight @bottomLeft;
 }
@@ -24,6 +23,12 @@
 	-webkit-box-shadow: inset @offsetX @offsetY @blur @size @color;
 	-moz-box-shadow: inset @offsetX @offsetY @blur @size @color;
 	box-shadow: inset @offsetX @offsetY @blur @size @color;
+}
+
+.boxShadow(@color, @offsetX: 0, @offsetY: 0, @blur: 5px, @spread: 0) {
+	-webkit-box-shadow: @offsetX @offsetY @blur @spread @color;
+	-moz-box-shadow: @offsetX @offsetY @blur @spread @color;
+	box-shadow: @offsetX @offsetY @blur @spread @color;
 }
 
 .topShadowedBackground(@backgroundColor, @size: 20%, @spread: 50%) {
@@ -46,4 +51,15 @@
 	background-image: -ms-linear-gradient(top, @shadowColor 0, @shadowColor @size, @backgroundColor @size, @backgroundColor 100%);
 	background-image: linear-gradient(top, @shadowColor 0, @shadowColor @size, @backgroundColor @size, @backgroundColor 100%);
 	background-color: @backgroundColor;
+}
+
+.circle(@radius, @borderSize: 0) {
+	@size: @radius*2;
+	@calcRadius: @radius + @borderSize;
+	
+	width: @size;
+	height: @size;
+	-webkit-border-radius: @calcRadius;
+	-moz-border-radius: @calcRadius;
+	border-radius: @calcRadius;
 }
