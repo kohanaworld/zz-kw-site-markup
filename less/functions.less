@@ -36,3 +36,14 @@
 	background-image: linear-gradient(top, @shadowColor 0, @shadowColor @size, @backgroundColor 100%);
 	background-color: @backgroundColor;
 }
+
+.topSolidShadowedBackground(@backgroundColor, @size: 20%, @spread: 50%) {
+	@shadowColor: darken(@backgroundColor, @spread);
+
+	background-image: -webkit-linear-gradient(top, @shadowColor 0, @shadowColor @size, @backgroundColor @size, @backgroundColor 100%);
+	background-image: -moz-linear-gradient(top, @shadowColor 0, @shadowColor @size, @backgroundColor @size, @backgroundColor 100%);
+	background-image: -o-linear-gradient(top, @shadowColor 0, @shadowColor @size, @backgroundColor @size, @backgroundColor 100%);
+	background-image: -ms-linear-gradient(top, @shadowColor 0, @shadowColor @size, @backgroundColor @size, @backgroundColor 100%);
+	background-image: linear-gradient(top, @shadowColor 0, @shadowColor @size, @backgroundColor @size, @backgroundColor 100%);
+	background-color: @backgroundColor;
+}

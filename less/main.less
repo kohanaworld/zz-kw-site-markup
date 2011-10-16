@@ -1,6 +1,8 @@
 @import "const";
 @import "functions";
 
+@darkenBorderColor: darken(@COLOR_BOX_BORDER, 25%);
+
 .clear {
 	clear: both;
 }
@@ -8,6 +10,7 @@
 body {
 	font: @BASE_FONT_SIZE @BASE_FONT_NAME;
 	line-height: 1.2em;
+	color: @COLOR_CONTENT;
 }
 
 #wrapper {
@@ -35,14 +38,15 @@ header.main {
 			height: @height;			
 			list-style: none;
 			
-			li {
+			li, a {
 				float: left;
-				font-size: 1.15em;
+			}
+			
+			li {
+				font-size: @BASE_FONT_SIZE + 2;
 				padding-top: @borderTop;
 
 				a {				
-					display: block;
-					
 					text-decoration: none;
 					color: white;						
 					font-weight: bold;
@@ -86,18 +90,19 @@ header.main {
 		ul.menu {
 			list-style: none;
 			text-transform: uppercase;
-			font-size: 0.75em;
+			font-size: @BASE_FONT_SIZE - 3;
 			font-weight: bold;
+			margin-top: 6px;
 			
 			li, a {
 				float: left;
 			}
 			
 			li {
-				border-right: 1px dotted darken(@COLOR_BOX_BORDER, 25%);
+				border-right: 1px dotted @darkenBorderColor;
+				padding: 3px 20px;
 				
-				a {
-					padding: 3px 20px;	
+				a {						
 					color: @COLOR_MENU;
 					text-decoration: none;
 				}
@@ -108,17 +113,27 @@ header.main {
 			}
 			
 			li.first {
-				a {
-					padding-left: 0;
-				}
+				padding-left: 0;
 			}
 			
 			li.last {
 				border-right: none;
-				
-				a {
-					padding-right: 0;
-				}
+				padding-right: 0;
+			}
+		}
+		
+		#search {
+			float: right;			
+			border: solid 1px @darkenBorderColor;
+			.topSolidShadowedBackground(#fff, 10%, 7%);
+			
+			input {		
+				width: 280px;
+				border: none;
+				margin: 0;
+				padding: 7px 30px 7px 3px;
+				color: @COLOR_MENU;
+				background: url(../i/design/bg/header/nav/sub/search.png) no-repeat 96% center;				
 			}
 		}
 	}
