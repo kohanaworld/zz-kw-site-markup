@@ -222,6 +222,34 @@ header.main {
 	#sidebar {
 		width: @SIDEBAR_WIDTH;
 		float: right;
+		
+		.widget {
+			@paddings: 15px 20px 10px 30px;
+			
+			header {
+				padding: @paddings;	
+				font-size: @BASE_FONT_SIZE + 4;
+				font-family: @HEADER_FONT_NAME;
+				color: @COLOR_HEADER;
+				font-weight: bold;
+				text-transform: uppercase;
+				background: white url(../i/design/bg/sidebar/widget/header/bg.png) repeat left top;
+				border-bottom: 1px solid @COLOR_BOX_BORDER;
+			}
+
+			.listview {
+				list-style: none;
+				
+				li {
+					padding: 5px;
+					border-bottom: 1px solid @COLOR_BOX_BORDER;
+				}
+				
+				li:nth-child(even) {
+					background: @COLOR_BOX_BACKGROUND;
+				}
+			}
+		}
 	}
 }
 
@@ -248,7 +276,7 @@ footer.main {
 			margin-right: @margin;			
 			
 			li.header {
-				color: @COLOR_HEADER;				
+				color: @COLOR_MENU;				
 				font-weight: bold;
 				margin-bottom: 10px;				
 			}
@@ -261,7 +289,7 @@ footer.main {
 				}
 				
 				a:hover {
-					color: @COLOR_HEADER;
+					color: @COLOR_MENU;
 				}
 			}
 		}
@@ -287,7 +315,7 @@ footer.main {
 				}
 				
 				a:hover {
-					color: @COLOR_HEADER;
+					color: @COLOR_MENU;
 				}
 				
 				.ico {
