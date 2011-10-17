@@ -31,6 +31,12 @@
 	box-shadow: @offsetX @offsetY @blur @spread @color;
 }
 
+.resetBoxShadow {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
 .topShadowedBackground(@backgroundColor, @size: 20%, @spread: 50%) {
 	@shadowColor: darken(@backgroundColor, @spread);
 

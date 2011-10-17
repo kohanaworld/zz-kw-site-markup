@@ -220,6 +220,47 @@ figure.user.avatar.big {
 	}
 }
 
+.pagination {	
+	padding: @BASE_FONT_SIZE - 4;
+	text-align: center;
+	font-size: @BASE_FONT_SIZE - 2;
+	font-weight: bold;
+	
+	ul {
+		@pageHeight: @BASE_FONT_SIZE*2;
+		
+		list-style: none;
+		display: inline-block;
+		
+		li {
+			float: left;
+			margin-right: 5px;
+			
+			.page, .skip {
+				display: inline-block;
+				width: @pageHeight;
+				height: @pageHeight;
+				line-height: @pageHeight;
+				color: @COLOR_CONTENT;
+				text-decoration: none;				
+			}
+			
+			.page {
+				border: solid 1px @darkenBorderColor;
+				.boxShadow(darken(@COLOR_BOX_BORDER, 30%), 0, 0, 1px);
+				.vLinearGradient(lighten(@COLOR_BOX_BACKGROUND, 8%), darken(@COLOR_BOX_BACKGROUND, 7%));				
+				.borderRadius(3px);
+				
+				&.active, &:hover {
+					background: darken(@darkenBorderColor, 30%);
+					color: white;
+					.insetBoxShadow(darken(@darkenBorderColor, 40%), 0, 0, 5px, 3px);
+				}
+			}
+		}
+	}
+}
+
 .tags-list {
 	list-style: none;
 	padding-top: 20px;
