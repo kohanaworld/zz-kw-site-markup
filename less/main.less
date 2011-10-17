@@ -259,15 +259,14 @@ figure.user {
 			.page {
 				text-shadow: 0 1px white;
 				border: solid 1px @darkenBorderColor;
-				.boxShadow(darken(@COLOR_BOX_BORDER, 20%), 0, 0, 1px);
 				.vLinearGradient(lighten(@COLOR_BOX_BACKGROUND, 8%), darken(@COLOR_BOX_BACKGROUND, 7%));				
 				.borderRadius(3px);
 				
 				&.active, &:hover {
 					text-shadow: 0 1px black;
+					border-color: darken(@darkenBorderColor, 30%);
 					background: darken(@darkenBorderColor, 30%);
 					color: white;
-					.insetBoxShadow(darken(@darkenBorderColor, 40%), 0, 0, 5px, 3px);
 				}
 			}
 		}
