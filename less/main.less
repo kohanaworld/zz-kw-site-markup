@@ -61,15 +61,16 @@ p {
 	margin: 1em 0;
 }
 
-img.ico {
+.ico {
+	display: inline-block;
 	vertical-align: middle;
 }
 
-img.ico.left{
+.ico.left{
 	margin-right: 5px;
 }
 
-img.ico.right{
+.ico.right{
 	margin-left: 5px;
 }
 
@@ -142,17 +143,17 @@ figure.user.avatar.big {
 		background: url(../i/design/bg/common/more/small/bg.png) no-repeat center;
 		border: 2px solid white;
 		font-size: @BASE_FONT_SIZE - 4;
-		.circle(@COLOR_MORE_BUTTON, 10px, 2px);
+		.circle(@COLOR_MORE_BUTTON_BACKGROUND, 10px, 2px);
 		.boxShadow(@COLOR_BOX_BORDER, 0, 0, 0, 1px);		
 		
 		&:hover {
-			background-color: darken(@COLOR_MORE_BUTTON, 10%);
+			background-color: darken(@COLOR_MORE_BUTTON_BACKGROUND, 10%);
 			.boxShadow(darken(@COLOR_BOX_BORDER, 10%), 0, 0, 0, 1px);
 		}
 	}
 	
 	&.normal {
-		background: @COLOR_MORE_BUTTON;
+		background: @COLOR_MORE_BUTTON_BACKGROUND;
 		font-size: @BASE_FONT_SIZE - 4;
 		text-transform: uppercase;	
 		padding: 1px 5px;
@@ -160,10 +161,76 @@ figure.user.avatar.big {
 		.borderRadius(12px);
 
 		&:hover {
-			background-color: darken(@COLOR_MORE_BUTTON, 10%);
+			background-color: darken(@COLOR_MORE_BUTTON_BACKGROUND, 10%);
 			border-color: darken(@COLOR_MORE_BUTTON_BORDER, 10%);
 			color: white;
 		}
+	}
+	
+	&.big {
+		@linkHeight: @BASE_FONT_SIZE * 2.2;
+		@border: 3px;
+		@moreArrowRadius: @BASE_FONT_SIZE - 4;
+		@buttonPadding: @BASE_FONT_SIZE * 1.7;
+	
+		position: relative;
+		height: @linkHeight;
+		line-height: @linkHeight;
+		padding: 0 @buttonPadding+@moreArrowRadius*2 0 @buttonPadding;
+		border: @border solid @COLOR_MORE_BUTTON_BORDER;
+		text-shadow: 0 1px white;
+		.insetBoxShadow(0, 2px, white);
+		.vLinearGradient(top, lighten(@COLOR_MORE_BUTTON_BACKGROUND, 10%), darken(@COLOR_MORE_BUTTON_BACKGROUND, 5%));
+		.borderRadius(@linkHeight/2 + @border);
+		
+		&:after {
+			content: "";
+			position: absolute;
+			top: @linkHeight/2 - @moreArrowRadius;
+			right: @moreArrowRadius;
+			background: url(../i/design/bg/common/more/small/bg.png) no-repeat center;
+			.circle(@COLOR_MORE_BUTTON_BORDER, @moreArrowRadius);
+			.insetBoxShadow(1px, 1px, darken(@COLOR_MORE_BUTTON_BORDER, 20%), 1px);
+		}
+		
+		&:before {
+			content: "";
+			position: absolute;
+			width: 2px;
+			height: @linkHeight;
+			border-style: solid;
+			border-width: 1px;
+			border-left-color: @COLOR_MORE_BUTTON_BORDER;
+			border-right-color: white;
+			border-top: none;
+			border-bottom: none;
+			right: @moreArrowRadius*3.5;
+			opacity: .8;
+		}
+		
+		&:hover {
+			.vLinearGradient(top, lighten(@COLOR_MORE_BUTTON_BACKGROUND, 8%), darken(@COLOR_MORE_BUTTON_BACKGROUND, 7%));
+		.borderRadius(@linkHeight/2 + @border);
+		}
+		
+		&:active {
+			background: @COLOR_MORE_BUTTON_BACKGROUND;
+			.insetBoxShadow(0, 2px, lighten(@COLOR_MORE_BUTTON_BORDER, 5%), 1px);
+		}
+	}
+}
+
+.tags-list {
+	list-style: none;
+	padding-top: 20px;
+	font-size: @BASE_FONT_SIZE - 3;
+	font-family: @HEADER_FONT_NAME;
+	
+	li {
+		float: left;
+		background: url(../i/design/bg/common/tags-list/item/bg.png) center left no-repeat;
+		padding-left: 20px;
+		margin-right: 10px;
 	}
 }
 
@@ -336,11 +403,13 @@ header.main {
 				
 				.content {
 					padding: @paddingsTopBottom @paddingsLeftRight;
+					border-top: 1px solid white;
+					border-bottom: 1px solid @COLOR_BOX_BORDER;
 				}
 				
 				footer {
 					padding: @paddingsTopBottom @paddingsLeftRight;
-					border-top: 1px solid @COLOR_BOX_BORDER;
+					border-top: 1px solid white;
 					
 					.more {
 						float: right;
@@ -348,25 +417,24 @@ header.main {
 					
 					.actions {
 						list-style: none;
+						margin-top: @BASE_FONT_SIZE - 4;
 						
 						li {
 							float: left;
-							margin-right: 10px;
+							margin-right: 20px;
+							
+							a, span {
+								display: inline-block;
+							}
+							
+							.ico {
+								vertical-align: bottom;
+							}
 						}
 					}
 				}
 			}
-		}
-		
-		.tags-list {
-			list-style: none;
-			padding-top: 20px;
-			
-			li {
-				float: left;
-				margin-right: 10px;
-			}
-		}
+		}		
 	}
 	
 	#sidebar {
@@ -402,12 +470,14 @@ header.main {
 				border-bottom: 1px solid @COLOR_BOX_BORDER;
 			
 				ul {
+					@ulHeight: @BASE_FONT_SIZE + 16;
+				
 					list-style: none;
 					display: inline-block;
 					padding-top: 10px;
 					font-size: @BASE_FONT_SIZE - 2;
 					font-weight: bold;	
-					height: 30px;
+					height: @ulHeight;
 					
 					li {
 						display: inline-block;
@@ -415,7 +485,7 @@ header.main {
 						a {
 							display: inline-block;
 							position: relative;
-							height: 29px;
+							height: @ulHeight - 1;
 							text-decoration: none;
 							color: @COLOR_CONTENT;
 							
@@ -436,7 +506,7 @@ header.main {
 									position: absolute;
 									bottom: -@triangleHeight - 3;
 									left: 50%;
-									margin-left: -(@triangleHeight+1)/2;
+									margin-left: -@triangleHeight;
 									.triangleDown(@darkenBorderColor, @triangleHeight, 1);
 								}
 							}
@@ -508,10 +578,10 @@ header.main {
 				
 				&.rated {
 					li {					
-						.key {				
-							.pos {
-								@radius: @BASE_FONT_SIZE - 2;
+						.key {	
+							@radius: @BASE_FONT_SIZE - 2;
 							
+							.pos {
 								margin-right: 10px;
 								display: inline-block;
 								vertical-align: middle;
@@ -522,7 +592,11 @@ header.main {
 								color: white;
 								.circle(darken(@COLOR_BOX_BACKGROUND, 35%), @radius);
 								.insetBoxShadow(1px, 1px, darken(@COLOR_BOX_BACKGROUND, 50%), 1px);
-							}							
+							}	
+
+							.name {
+								width: @SIDEBAR_WIDTH - @radius*2 - 115;
+							}
 						}
 					}
 				}				
