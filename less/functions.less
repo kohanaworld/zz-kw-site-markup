@@ -3,8 +3,8 @@
 	width: @width;
 }
 
-.vLinearGradient(@point, @colorFrom, @colorTo) {
-	background-image: -webkit-gradient(linear, left top, left bottom, from(@colorFrom), to(@colorTo));
+.vLinearGradient(@colorFrom, @colorTo, @point: top) {
+	background-image: -webkit-gradient(linear, left @point, left bottom, from(@colorFrom), to(@colorTo));
 	background-image: -webkit-linear-gradient(@point, @colorFrom, @colorTo);
 	background-image: -moz-linear-gradient(@point, @colorFrom, @colorTo);
 	background-image: -o-linear-gradient(@point, @colorFrom, @colorTo);
@@ -19,7 +19,7 @@
 	border-radius: @radius;
 }
 
-.insetBoxShadow(@offsetX, @offsetY, @color: #000, @blur: 0, @size: 1px) {
+.insetBoxShadow(@color: #000, @offsetX: 0, @offsetY: 0, @blur: 0, @size: 1px) {
 	-webkit-box-shadow: inset @offsetX @offsetY @blur @size @color;
 	-moz-box-shadow: inset @offsetX @offsetY @blur @size @color;
 	box-shadow: inset @offsetX @offsetY @blur @size @color;

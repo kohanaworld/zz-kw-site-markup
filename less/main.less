@@ -180,7 +180,7 @@ figure.user.avatar.big {
 		border: @border solid @COLOR_MORE_BUTTON_BORDER;
 		text-shadow: 0 1px white;
 		.insetBoxShadow(0, 2px, white);
-		.vLinearGradient(top, lighten(@COLOR_MORE_BUTTON_BACKGROUND, 10%), darken(@COLOR_MORE_BUTTON_BACKGROUND, 5%));
+		.vLinearGradient(lighten(@COLOR_MORE_BUTTON_BACKGROUND, 10%), darken(@COLOR_MORE_BUTTON_BACKGROUND, 5%));
 		.borderRadius(@linkHeight/2 + @border);
 		
 		&:after {
@@ -190,7 +190,7 @@ figure.user.avatar.big {
 			right: @moreArrowRadius;
 			background: url(../i/design/bg/common/more/small/bg.png) no-repeat center;
 			.circle(@COLOR_MORE_BUTTON_BORDER, @moreArrowRadius);
-			.insetBoxShadow(1px, 1px, darken(@COLOR_MORE_BUTTON_BORDER, 20%), 1px);
+			.insetBoxShadow(darken(@COLOR_MORE_BUTTON_BORDER, 20%), 1px, 1px, 1px);
 		}
 		
 		&:before {
@@ -209,13 +209,13 @@ figure.user.avatar.big {
 		}
 		
 		&:hover {
-			.vLinearGradient(top, lighten(@COLOR_MORE_BUTTON_BACKGROUND, 8%), darken(@COLOR_MORE_BUTTON_BACKGROUND, 7%));
+			.vLinearGradient(lighten(@COLOR_MORE_BUTTON_BACKGROUND, 8%), darken(@COLOR_MORE_BUTTON_BACKGROUND, 7%));
 		.borderRadius(@linkHeight/2 + @border);
 		}
 		
 		&:active {
 			background: @COLOR_MORE_BUTTON_BACKGROUND;
-			.insetBoxShadow(0, 2px, lighten(@COLOR_MORE_BUTTON_BORDER, 5%), 1px);
+			.insetBoxShadow(lighten(@COLOR_MORE_BUTTON_BORDER, 5%), 0, 2px, 1px);
 		}
 	}
 }
@@ -591,7 +591,7 @@ header.main {
 								font-size: @BASE_FONT_SIZE;
 								color: white;
 								.circle(darken(@COLOR_BOX_BACKGROUND, 35%), @radius);
-								.insetBoxShadow(1px, 1px, darken(@COLOR_BOX_BACKGROUND, 50%), 1px);
+								.insetBoxShadow(darken(@COLOR_BOX_BACKGROUND, 50%), 1px, 1px, 1px);
 							}	
 
 							.name {
