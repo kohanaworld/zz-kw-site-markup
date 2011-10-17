@@ -128,15 +128,35 @@ figure.user.avatar.big {
 	text-decoration: none;
 	color: @COLOR_CONTENT;
 	vertical-align: middle;
+	font-weight: normal;
+	font-style: normal;
+	font-family: @BASE_FONT_NAME;
 	
 	&.small {
-		background: lighten(@COLOR_MORE_BUTTON, 5%) url(../i/design/bg/common/more/small/bg.png) no-repeat center;
+		background: @COLOR_MORE_BUTTON url(../i/design/bg/common/more/small/bg.png) no-repeat center;
 		border: 2px solid white;
 		.circle(10px, 2px);
 		.boxShadow(@COLOR_BOX_BORDER, 0, 0, 0, 1px);
+		font-size: @BASE_FONT_SIZE - 4;
 		
 		&:hover {
-			background-color: @COLOR_MORE_BUTTON;
+			background-color: darken(@COLOR_MORE_BUTTON, 10%);
+			.boxShadow(darken(@COLOR_BOX_BORDER, 10%), 0, 0, 0, 1px);
+		}
+	}
+	
+	&.normal {
+		background: @COLOR_MORE_BUTTON;
+		font-size: @BASE_FONT_SIZE - 4;
+		text-transform: uppercase;	
+		padding: 1px 5px;
+		border: 2px solid @COLOR_MORE_BUTTON_BORDER;
+		.borderRadius(12px);
+
+		&:hover {
+			background-color: darken(@COLOR_MORE_BUTTON, 10%);
+			border-color: darken(@COLOR_MORE_BUTTON_BORDER, 10%);
+			color: white;
 		}
 	}
 }
@@ -161,7 +181,7 @@ header.main {
 	
 		height: @height;
 		background: @COLOR_MENU url(../i/design/bg/header/nav/main/bg.png) repeat-x top left;
-		.borderRadius(@BOX_CORNERS_RADIUS, @BOX_CORNERS_RADIUS, 0, 0);
+		.borderRadius(@BOX_CORNERS_RADIUS @BOX_CORNERS_RADIUS 0 0);
 		
 		ul.menu {
 			height: @height;			
@@ -204,7 +224,7 @@ header.main {
 			}
 			
 			li.first:hover {
-				.borderRadius(@BOX_CORNERS_RADIUS, 0, 0, 0);
+				.borderRadius(@BOX_CORNERS_RADIUS 0 0 0);
 			}
 		}
 	}
@@ -214,7 +234,7 @@ header.main {
 		border: 1px solid @COLOR_BOX_BORDER;
 		border-top: none;		
 		.topShadowedBackground(@COLOR_BOX_BACKGROUND, 5px, 20%);
-		.borderRadius(0, 0, @BOX_CORNERS_RADIUS, @BOX_CORNERS_RADIUS);
+		.borderRadius(0 0 @BOX_CORNERS_RADIUS @BOX_CORNERS_RADIUS);
 		
 		ul.menu {
 			list-style: none;
@@ -362,7 +382,7 @@ header.main {
 							
 							.ico.left {
 								margin-right: 10px;
-							}
+							}							
 						}
 						
 						.value {
@@ -371,6 +391,28 @@ header.main {
 							font-family: @NOTES_FONT_NAME;
 							font-style: italic;
 							font-weight: bold;
+						}
+					}
+				}
+				
+				&.rated {
+					li {					
+						.key {				
+							.pos {
+								@radius: @BASE_FONT_SIZE - 2;
+							
+								margin-right: 10px;
+								display: inline-block;
+								vertical-align: middle;
+								text-align: center;
+								line-height: @radius*2;
+								font-weight: bold;
+								font-size: @BASE_FONT_SIZE;
+								color: white;
+								background-color: darken(@COLOR_BOX_BACKGROUND, 35%);
+								.circle(@radius);
+								.insetBoxShadow(1px, 1px, darken(@COLOR_BOX_BACKGROUND, 50%), 1px);
+							}							
 						}
 					}
 				}
@@ -390,6 +432,28 @@ header.main {
 			.listview {
 				.value {
 					color: #cba038;
+				}
+			}
+		}
+		
+		#top-ratings-widget {
+			.listview {				
+				li {
+					.value {
+						text-align: center;
+						
+						.info {
+							margin-bottom: 5px;
+							font-style: normal;
+							font-size: @BASE_FONT_SIZE - 2;
+							font-family: @BASE_FONT_NAME;
+							color: lighten(@COLOR_CONTENT, 30%);
+							
+							.forks {
+								color: @COLOR_ADDITIONAL_INFO;
+							}
+						}
+					}
 				}
 			}
 		}
