@@ -246,12 +246,14 @@ figure.user.avatar.big {
 			}
 			
 			.page {
+				text-shadow: 0 1px white;
 				border: solid 1px @darkenBorderColor;
-				.boxShadow(darken(@COLOR_BOX_BORDER, 30%), 0, 0, 1px);
+				.boxShadow(darken(@COLOR_BOX_BORDER, 20%), 0, 0, 1px);
 				.vLinearGradient(lighten(@COLOR_BOX_BACKGROUND, 8%), darken(@COLOR_BOX_BACKGROUND, 7%));				
 				.borderRadius(3px);
 				
 				&.active, &:hover {
+					text-shadow: 0 1px black;
 					background: darken(@darkenBorderColor, 30%);
 					color: white;
 					.insetBoxShadow(darken(@darkenBorderColor, 40%), 0, 0, 5px, 3px);
@@ -518,10 +520,10 @@ header.main {
 					padding-top: 10px;
 					font-size: @BASE_FONT_SIZE - 2;
 					font-weight: bold;	
-					height: @ulHeight;
+					height: @ulHeight - 3;
 					
 					li {
-						display: inline-block;
+						float: left;
 					
 						a {
 							display: inline-block;
