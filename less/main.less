@@ -108,7 +108,7 @@ figure.user.avatar.big {
 		background: white;
 		padding: 3px;
 		border: 1px solid @COLOR_BOX_BORDER;
-		.boxShadow(@COLOR_BOX_BORDER);
+		.boxShadow(desaturate(@COLOR_BOX_BORDER, 100%));
 	}
 	
 	figcaption {
@@ -133,11 +133,11 @@ figure.user.avatar.big {
 	font-family: @BASE_FONT_NAME;
 	
 	&.small {
-		background: @COLOR_MORE_BUTTON url(../i/design/bg/common/more/small/bg.png) no-repeat center;
+		background: url(../i/design/bg/common/more/small/bg.png) no-repeat center;
 		border: 2px solid white;
-		.circle(10px, 2px);
-		.boxShadow(@COLOR_BOX_BORDER, 0, 0, 0, 1px);
 		font-size: @BASE_FONT_SIZE - 4;
+		.circle(@COLOR_MORE_BUTTON, 10px, 2px);
+		.boxShadow(@COLOR_BOX_BORDER, 0, 0, 0, 1px);		
 		
 		&:hover {
 			background-color: darken(@COLOR_MORE_BUTTON, 10%);
@@ -194,6 +194,20 @@ header.main {
 			li {
 				font-size: @BASE_FONT_SIZE + 2;
 				padding-top: @borderTop;
+				
+				&:first-child {
+					.borderRadius(@BOX_CORNERS_RADIUS 0 0 0);
+				}
+				
+				&:hover {
+					background: url(../i/design/bg/header/nav/main/active_item.png) no-repeat top left;
+					
+					a {	
+						span {						
+							border-right-color: fadeout(@COLOR_MENU_HOVER, 40%);
+						}
+					}
+				}	
 
 				a {				
 					text-decoration: none;
@@ -211,21 +225,7 @@ header.main {
 						border-right: 1px solid lighten(@COLOR_MENU, 10%);
 					}
 				}
-			}
-			
-			li:hover {
-				background: url(../i/design/bg/header/nav/main/active_item.png) no-repeat top left;
-				
-				a {	
-					span {						
-						border-right-color: fadeout(@COLOR_MENU_HOVER, 40%);
-					}
-				}
-			}
-			
-			li.first:hover {
-				.borderRadius(@BOX_CORNERS_RADIUS 0 0 0);
-			}
+			}	
 		}
 	}
 
@@ -251,7 +251,16 @@ header.main {
 			
 			li {
 				border-right: 1px dotted @darkenBorderColor;
-				padding: 3px 20px;
+				padding: 3px 20px;				
+				
+				&:first-child {
+					padding-left: 0;
+				}
+				
+				&:last-child  {
+					border-right: none;
+					padding-right: 0;
+				}
 				
 				a {						
 					color: @COLOR_HEADER;
@@ -261,16 +270,7 @@ header.main {
 				a:hover {
 					color: @COLOR_MENU_HOVER;
 				}
-			}
-			
-			li.first {
-				padding-left: 0;
-			}
-			
-			li.last {
-				border-right: none;
-				padding-right: 0;
-			}
+			}			
 		}
 		
 		#search {
@@ -341,6 +341,62 @@ header.main {
 					color: @COLOR_MENU_HOVER;
 				}
 			}
+			
+			.actions {
+				text-align: center;
+				border-bottom: 1px solid @COLOR_BOX_BORDER;
+			
+				ul {
+					list-style: none;
+					display: inline-block;
+					padding-top: 10px;
+					font-size: @BASE_FONT_SIZE - 2;
+					font-weight: bold;	
+					height: 30px;
+					
+					li {
+						display: inline-block;
+					
+						a {
+							display: inline-block;
+							position: relative;
+							height: 29px;
+							text-decoration: none;
+							color: @COLOR_CONTENT;
+							
+							span {
+								display: inline-block;					
+								padding: 0 10px;
+								border-right: 1px dotted @darkenBorderColor;					
+							}							
+							
+							&.active, &:hover {
+								border-bottom: 3px solid @darkenBorderColor;
+								color: @COLOR_MENU;
+															
+								&:after {
+									@triangleHeight: 5px;
+								
+									content: "";
+									position: absolute;
+									bottom: -@triangleHeight - 3;
+									left: 50%;
+									margin-left: -(@triangleHeight+1)/2;
+									.triangleDown(@darkenBorderColor, @triangleHeight, 1);
+								}
+							}
+						}
+						
+						&:last-child {
+							a {
+								span {
+									border-right: none;
+								}
+							}
+						}
+					}
+				}
+			}
 
 			.listview {
 				list-style: none;				
@@ -409,13 +465,12 @@ header.main {
 								font-weight: bold;
 								font-size: @BASE_FONT_SIZE;
 								color: white;
-								background-color: darken(@COLOR_BOX_BACKGROUND, 35%);
-								.circle(@radius);
+								.circle(darken(@COLOR_BOX_BACKGROUND, 35%), @radius);
 								.insetBoxShadow(1px, 1px, darken(@COLOR_BOX_BACKGROUND, 50%), 1px);
 							}							
 						}
 					}
-				}
+				}				
 			}
 		}
 		
@@ -516,6 +571,10 @@ footer.main {
 				padding: 0 15px;
 				border-right: 1px dotted @darkenBorderColor;
 				
+				&:last-child {
+					border-right: none;
+				}
+				
 				a {
 					text-decoration: none;
 					color: @COLOR_CONTENT;
@@ -528,10 +587,6 @@ footer.main {
 				.ico {
 					vertical-align: top;
 				}
-			}
-			
-			li.last {
-				border-right: none;
 			}
 		}
 	}
