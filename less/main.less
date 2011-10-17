@@ -24,35 +24,41 @@ a img {
 h1, h2, h3, h4, h5, h6 {
 	font-family: @HEADER_FONT_NAME;
 	color: @COLOR_HEADER;
-	font-weight: bold;
-}
-
-h1, h2, h3{
-	text-transform: uppercase;
+	font-weight: bold;	
 }
 
 h1 {
 	font-size: @BASE_FONT_SIZE + 4;
+	text-transform: uppercase;
 }
 
 h2 {
 	font-size: @BASE_FONT_SIZE + 2;
+	margin: 1em 0;
 }
 
 h3 {
 	font-size: @BASE_FONT_SIZE;
+	margin: 1em 0;
 }
 
 h4 {
 	font-size: @BASE_FONT_SIZE - 2;
+	margin: 1.25em 0;
 }
 
 h5 {
 	font-size: @BASE_FONT_SIZE - 3;
+	margin: 1.4em 0;
 }
 
 h6 {
 	font-size: @BASE_FONT_SIZE - 4;
+	margin: 1.5em 0;
+}
+
+p {
+	margin: 1em 0;
 }
 
 img.ico {
@@ -312,6 +318,55 @@ header.main {
 	#content {
 		width: @CONTENT_WIDTH;
 		float: left;
+		
+		.articles-list {
+			article {
+				@paddingsLeftRight: 20px;
+				@paddingsTopBottom: 10px;
+				
+				background: @COLOR_BOX_BACKGROUND;
+				border: 5px solid @COLOR_BOX_BORDER;
+				margin-bottom: 20px;
+				.borderRadius(@BOX_CORNERS_RADIUS);
+			
+				header {
+					padding: 1px @paddingsLeftRight;
+					border-bottom: 1px solid @COLOR_BOX_BORDER;
+				}
+				
+				.content {
+					padding: @paddingsTopBottom @paddingsLeftRight;
+				}
+				
+				footer {
+					padding: @paddingsTopBottom @paddingsLeftRight;
+					border-top: 1px solid @COLOR_BOX_BORDER;
+					
+					.more {
+						float: right;
+					}
+					
+					.actions {
+						list-style: none;
+						
+						li {
+							float: left;
+							margin-right: 10px;
+						}
+					}
+				}
+			}
+		}
+		
+		.tags-list {
+			list-style: none;
+			padding-top: 20px;
+			
+			li {
+				float: left;
+				margin-right: 10px;
+			}
+		}
 	}
 	
 	#sidebar {
