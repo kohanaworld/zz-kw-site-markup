@@ -1,4 +1,4 @@
 $(document).ready(function(){
-	var userMennu = $('#user-menu');
-	userMennu.find('ul').width(userMennu.width());
+	var userMenu = $('#user-menu');
+	userMenu.find('ul').width(userMenu.width());
 });

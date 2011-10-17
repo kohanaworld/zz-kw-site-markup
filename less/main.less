@@ -249,11 +249,12 @@ figure.user {
 			
 			.page, .skip {
 				display: inline-block;
-				width: @pageHeight;
+				min-width: @pageHeight - 10;
 				height: @pageHeight;
 				line-height: @pageHeight;
 				color: @COLOR_CONTENT;
-				text-decoration: none;				
+				text-decoration: none;
+				padding: 0 5px;
 			}
 			
 			.page {
@@ -342,6 +343,7 @@ header.main {
 					text-decoration: none;
 					color: white;						
 					font-weight: bold;
+					text-shadow: 1px 1px black;
 					border-right: 1px solid darken(@COLOR_MENU, 5%);
 
 					span {
@@ -365,6 +367,7 @@ header.main {
 				position: relative;
 				text-decoration: none;
 				color: white;
+				text-shadow: 1px 1px black;
 				min-width: @itemWidth;
 				height: @height;			
 				padding: 0 50px 0 20px;
@@ -408,7 +411,8 @@ header.main {
 						
 						height: @height;
 						line-height: @height;
-						text-align: left;						
+						text-align: left;	
+						text-shadow: none;
 						width: auto;
 						border-bottom: 1px solid darken(@COLOR_BOX_BORDER, 65%);
 						padding: 0;
@@ -420,7 +424,7 @@ header.main {
 						a {
 							display: block;
 							text-decoration: none;
-							color: @COLOR_CONTENT;
+							color: lighten(@COLOR_CONTENT, 20%);
 							padding: 0 20px;
 							
 							&:hover {
@@ -454,6 +458,7 @@ header.main {
 			text-transform: uppercase;
 			font-size: @BASE_FONT_SIZE - 2;
 			font-weight: bold;
+			text-shadow: 0 1px white;
 			margin-top: 6px;
 			font-family: @HEADER_FONT_NAME;	
 			
